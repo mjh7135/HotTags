@@ -37,8 +37,9 @@ def increase_tags():
   num_tags.set(f"{count}")
 
 def decrease_tags(sub):
-  count = int(num_tags.value) - 1
-  num_tags.set(f"{count}")
+  if num_tags.value =! 1:
+    count = int(num_tags.value) - 1
+    num_tags.set(f"{count}")
 
 def shutdown():
   pass
@@ -47,17 +48,18 @@ def run():
   tag_count = int(num_tags.value)
   #disable buttons
   #start motor
-  #push first tag
-  #reverse motor
-  #retract
+  push_tag()
+  reverse_motor()
+  retract()
   #wait for sensor
-  #reverse motor
+  reverse_motor()
   for tag in range(1, tag_count):
     push_tag()
     reverse_motor()
     retract()
     #wait for sensor 
     reverse_motor()
+  #stop motor
   #enable buttons
   pass
 
