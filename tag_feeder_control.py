@@ -44,26 +44,28 @@ def shutdown():
   pass
 
 def run():
-  #get num_tags
+  tag_count = int(num_tags.value)
+  #disable buttons
   #start motor
   #push first tag
   #reverse motor
   #retract
   #wait for sensor
   #reverse motor
-  #for num_tags-1:
-    #push tag
-    #reverse motor
-    #retract
-    #wait for sensor
-    #reverse motor
+  for tag in range(1, tag_count):
+    push_tag()
+    reverse_motor()
+    retract()
+    #wait for sensor 
+    reverse_motor()
+  #enable buttons
   pass
 
 increase_by_1_button = PushButton(app, command=increase_tags, text="+1")
 #increase_by_5_button = PushButton(app, command=increase_tags, text="+5")
 #increase_by_10_button = PushButton(app, command=increase_tags, text="+10")
 decrease_by_1_button = PushButton(app, command=decrease_tags, text="-1")
-decrease_by_5_button = PushButton(app, command=decrease_tags, text="-5")
-decrease_by_10_button = PushButton(app, command=decrease_tags, text="-10")
+#decrease_by_5_button = PushButton(app, command=decrease_tags, text="-5")
+#decrease_by_10_button = PushButton(app, command=decrease_tags, text="-10")
 
 app.display()
